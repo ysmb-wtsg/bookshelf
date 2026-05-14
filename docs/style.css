@@ -1,0 +1,66 @@
+/* Book Logger - モック用スタイル */
+
+body {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+}
+
+/* 書籍カード */
+.book-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border: 1px solid #dee2e6;
+}
+
+.book-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.book-card .card-title a:hover {
+  color: #0d6efd !important;
+}
+
+/* タグバッジ */
+.tag-badge {
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.4em 0.8em;
+}
+
+.tag-badge:hover {
+  opacity: 0.8;
+}
+
+/* 星評価 */
+.star-rating {
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* ログイン・登録画面 */
+.auth-container {
+  max-width: 440px;
+  margin: 60px auto;
+}
+
+/* 書籍詳細 */
+.review-card {
+  border-left: 3px solid #0d6efd;
+}
+
+/* モック表示バナー */
+.mock-banner {
+  background: linear-gradient(90deg, #ff6b6b, #ee5a24);
+  color: white;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}

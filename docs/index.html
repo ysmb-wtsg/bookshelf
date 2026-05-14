@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Logger - 読書記録アプリ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ナビゲーションバー -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-book"></i> Book Logger</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">書籍一覧</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="book_new.html">書籍登録</a>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <span class="text-light me-3"><i class="bi bi-person-circle"></i> テストユーザー</span>
+        <a href="login.html" class="btn btn-outline-light btn-sm">ログアウト</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- メインコンテンツ -->
+<div class="container my-4">
+
+  <!-- ヘッダー -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>書籍一覧</h2>
+    <a href="book_new.html" class="btn btn-primary"><i class="bi bi-plus-lg"></i> 書籍を登録</a>
+  </div>
+
+  <!-- 検索・フィルタ -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <div class="row g-3 align-items-end">
+        <div class="col-md-5">
+          <label class="form-label">キーワード検索</label>
+          <input type="text" class="form-control" placeholder="タイトル・著者名で検索...">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">タグで絞り込み</label>
+          <select class="form-select">
+            <option selected>すべて</option>
+            <option>Ruby</option>
+            <option>設計</option>
+            <option>小説</option>
+            <option>ビジネス</option>
+            <option>自己啓発</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-secondary w-100"><i class="bi bi-search"></i> 検索</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- タグバッジ（クイックフィルタ） -->
+  <div class="mb-3">
+    <span class="badge bg-primary me-1 tag-badge">Ruby</span>
+    <span class="badge bg-success me-1 tag-badge">設計</span>
+    <span class="badge bg-warning text-dark me-1 tag-badge">小説</span>
+    <span class="badge bg-info text-dark me-1 tag-badge">ビジネス</span>
+    <span class="badge bg-secondary me-1 tag-badge">自己啓発</span>
+  </div>
+
+  <!-- 書籍一覧 -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+    <!-- 書籍カード 1 -->
+    <div class="col">
+      <div class="card h-100 book-card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <h5 class="card-title mb-0">
+              <a href="book_detail.html" class="text-decoration-none text-dark">リーダブルコード</a>
+            </h5>
+            <div class="star-rating text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+            </div>
+          </div>
+          <p class="text-muted mb-2"><i class="bi bi-person"></i> Dustin Boswell, Trevor Foucher</p>
+          <p class="card-text small">より良いコードを書くためのシンプルで実践的なテクニックを紹介する名著。変数名の付け方からコメントの書き方まで幅広くカバー。</p>
+          <div class="mt-2">
+            <span class="badge bg-primary me-1">設計</span>
+            <span class="badge bg-success me-1">Ruby</span>
+          </div>
+        </div>
+        <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+          <small class="text-muted"><i class="bi bi-chat-dots"></i> レビュー 2件</small>
+          <small class="text-muted">2026-04-10 登録</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- 書籍カード 2 -->
+    <div class="col">
+      <div class="card h-100 book-card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <h5 class="card-title mb-0">
+              <a href="book_detail.html" class="text-decoration-none text-dark">達人プログラマー</a>
+            </h5>
+            <div class="star-rating text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+          <p class="text-muted mb-2"><i class="bi bi-person"></i> David Thomas, Andrew Hunt</p>
+          <p class="card-text small">ソフトウェア開発のあらゆる側面をカバーするプラグマティックな指南書。20年以上読み継がれている不朽の名作。</p>
+          <div class="mt-2">
+            <span class="badge bg-primary me-1">設計</span>
+          </div>
+        </div>
+        <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+          <small class="text-muted"><i class="bi bi-chat-dots"></i> レビュー 1件</small>
+          <small class="text-muted">2026-03-22 登録</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- 書籍カード 3 -->
+    <div class="col">
+      <div class="card h-100 book-card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <h5 class="card-title mb-0">
+              <a href="book_detail.html" class="text-decoration-none text-dark">ノルウェイの森</a>
+            </h5>
+            <div class="star-rating text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+            </div>
+          </div>
+          <p class="text-muted mb-2"><i class="bi bi-person"></i> 村上春樹</p>
+          <p class="card-text small">1960年代の東京を舞台に、喪失と再生を描いた長編恋愛小説。静謐な文体が印象的。</p>
+          <div class="mt-2">
+            <span class="badge bg-warning text-dark me-1">小説</span>
+          </div>
+        </div>
+        <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+          <small class="text-muted"><i class="bi bi-chat-dots"></i> レビュー 3件</small>
+          <small class="text-muted">2026-03-15 登録</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- 書籍カード 4 -->
+    <div class="col">
+      <div class="card h-100 book-card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <h5 class="card-title mb-0">
+              <a href="book_detail.html" class="text-decoration-none text-dark">ZERO to ONE</a>
+            </h5>
+            <div class="star-rating text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+              <i class="bi bi-star"></i>
+            </div>
+          </div>
+          <p class="text-muted mb-2"><i class="bi bi-person"></i> Peter Thiel</p>
+          <p class="card-text small">PayPal共同創業者が語る、ゼロから新しい価値を生み出すスタートアップの思考法。</p>
+          <div class="mt-2">
+            <span class="badge bg-info text-dark me-1">ビジネス</span>
+          </div>
+        </div>
+        <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+          <small class="text-muted"><i class="bi bi-chat-dots"></i> レビュー 1件</small>
+          <small class="text-muted">2026-02-28 登録</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- 書籍カード 5 -->
+    <div class="col">
+      <div class="card h-100 book-card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <h5 class="card-title mb-0">
+              <a href="book_detail.html" class="text-decoration-none text-dark">プロを目指す人のためのRuby入門</a>
+            </h5>
+            <div class="star-rating text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star"></i>
+            </div>
+          </div>
+          <p class="text-muted mb-2"><i class="bi bi-person"></i> 伊藤淳一</p>
+          <p class="card-text small">チェリー本の愛称で親しまれるRuby入門書。初心者から中級者まで幅広く対応し、実践的な内容が充実。</p>
+          <div class="mt-2">
+            <span class="badge bg-success me-1">Ruby</span>
+          </div>
+        </div>
+        <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+          <small class="text-muted"><i class="bi bi-chat-dots"></i> レビュー 2件</small>
+          <small class="text-muted">2026-02-10 登録</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- 書籍カード 6 -->
+    <div class="col">
+      <div class="card h-100 book-card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start mb-2">
+            <h5 class="card-title mb-0">
+              <a href="book_detail.html" class="text-decoration-none text-dark">嫌われる勇気</a>
+            </h5>
+            <div class="star-rating text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+            </div>
+          </div>
+          <p class="text-muted mb-2"><i class="bi bi-person"></i> 岸見一郎, 古賀史健</p>
+          <p class="card-text small">アドラー心理学を対話形式でわかりやすく解説。「すべての悩みは対人関係の悩みである」という命題に迫る。</p>
+          <div class="mt-2">
+            <span class="badge bg-secondary me-1">自己啓発</span>
+          </div>
+        </div>
+        <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+          <small class="text-muted"><i class="bi bi-chat-dots"></i> レビュー 1件</small>
+          <small class="text-muted">2026-01-20 登録</small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ページネーション -->
+  <nav class="mt-4">
+    <ul class="pagination justify-content-center">
+      <li class="page-item disabled"><a class="page-link" href="#">前へ</a></li>
+      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">次へ</a></li>
+    </ul>
+  </nav>
+
+</div>
+
+<!-- フッター -->
+<footer class="bg-dark text-light py-3 mt-5">
+  <div class="container text-center">
+    <small>&copy; 2026 Book Logger. All rights reserved.</small>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

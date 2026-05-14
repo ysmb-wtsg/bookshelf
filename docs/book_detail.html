@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>リーダブルコード - Book Logger</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="index.html"><i class="bi bi-book"></i> Book Logger</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">書籍一覧</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="book_new.html">書籍登録</a>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <span class="text-light me-3"><i class="bi bi-person-circle"></i> テストユーザー</span>
+        <a href="login.html" class="btn btn-outline-light btn-sm">ログアウト</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container my-4">
+
+  <!-- パンくずリスト -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">書籍一覧</a></li>
+      <li class="breadcrumb-item active">リーダブルコード</li>
+    </ol>
+  </nav>
+
+  <!-- 書籍情報 -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-8">
+          <h2 class="mb-2">リーダブルコード</h2>
+          <p class="text-muted mb-3"><i class="bi bi-person"></i> Dustin Boswell, Trevor Foucher</p>
+
+          <div class="mb-3">
+            <span class="text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+            </span>
+            <span class="ms-2 text-muted">4.5 / 5.0（2件のレビュー）</span>
+          </div>
+
+          <p>より良いコードを書くためのシンプルで実践的なテクニックを紹介する名著。変数名の付け方からコメントの書き方、コードの整理方法まで幅広くカバーしている。プログラミング初心者から上級者まで、すべての開発者に読んでほしい一冊。</p>
+
+          <div class="mt-3">
+            <span class="badge bg-primary me-1">設計</span>
+            <span class="badge bg-success me-1">Ruby</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="bg-light rounded p-3">
+            <table class="table table-sm table-borderless mb-0">
+              <tr>
+                <th class="text-muted">登録日</th>
+                <td>2026-04-10</td>
+              </tr>
+              <tr>
+                <th class="text-muted">登録者</th>
+                <td>テストユーザー</td>
+              </tr>
+              <tr>
+                <th class="text-muted">レビュー数</th>
+                <td>2件</td>
+              </tr>
+            </table>
+            <hr>
+            <div class="d-grid gap-2">
+              <a href="book_edit.html" class="btn btn-outline-primary btn-sm"><i class="bi bi-pencil"></i> 編集</a>
+              <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i> 削除</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- レビューセクション -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4>レビュー（2件）</h4>
+    <a href="review_new.html" class="btn btn-success btn-sm"><i class="bi bi-pencil-square"></i> レビューを書く</a>
+  </div>
+
+  <!-- レビュー 1 -->
+  <div class="card review-card mb-3">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-start mb-2">
+        <div>
+          <strong><i class="bi bi-person-circle"></i> テストユーザー</strong>
+          <span class="text-muted ms-2">2026-04-15</span>
+        </div>
+        <div class="text-warning">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+        </div>
+      </div>
+      <h6>コードを書くすべての人に読んでほしい</h6>
+      <p class="mb-0">変数名やコメントの書き方など、普段何気なくやっていることを体系的に学べる。読みやすいコードを書くことの重要性を改めて実感した。チームの新人研修にも使えそう。</p>
+    </div>
+  </div>
+
+  <!-- レビュー 2 -->
+  <div class="card review-card mb-3">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-start mb-2">
+        <div>
+          <strong><i class="bi bi-person-circle"></i> 山田太郎</strong>
+          <span class="text-muted ms-2">2026-04-12</span>
+        </div>
+        <div class="text-warning">
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star-fill"></i>
+          <i class="bi bi-star"></i>
+        </div>
+      </div>
+      <h6>実践的で読みやすい</h6>
+      <p class="mb-0">具体的なコード例が豊富で、すぐに実務に活かせる内容。ただし、大規模なアーキテクチャについてはスコープ外なので、別の書籍で補完する必要がある。</p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="bg-dark text-light py-3 mt-5">
+  <div class="container text-center">
+    <small>&copy; 2026 Book Logger. All rights reserved.</small>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
