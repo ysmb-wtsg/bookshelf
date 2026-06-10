@@ -21,3 +21,8 @@ footer {
 .link {
    text-decoration: none;
 }
+.board-link {
+  &:hover {
+  color: #0d6efd !important;
+  }
+}
