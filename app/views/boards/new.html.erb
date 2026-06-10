@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= '書籍を登録' %></h1>
+      <%= form_with model: @board, class: "new_board" do |f| %>
+        <div class="mb-3">
+          <%= f.label :title, 'タイトル' %>
+          <%= f.text_field :title, class: "form-control", placeholder: "例: リーダブルコード" %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :author, '著者' %>
+          <%= f.text_field :author, class: "form-control", placeholder: "例: Dustin Boswell, Trevor Foucher" %>
+          <small class="form-text text-muted">複数名の場合はカンマ区切りで入力</small>
+        </div>
+        <div class="mb-3">
+          <%= f.label :body, '説明' %>
+          <%= f.text_area :body, class: "form-control", placeholder: "書籍の概要を入力してください...", rows: "5" %>
+        </div>
+        <div class="d-flex gap-2">
+          <%= f.submit '登録する', class: "btn btn-primary" %>
+          <%= link_to 'キャンセル', boards_path, class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
