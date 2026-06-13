@@ -7,7 +7,7 @@
              <%= form_with url: login_path do |f| %>
                <div class="mb-3">
                  <%= f.label :メールアドレス %>
-                 <%= f.email_field :email, class: "form-control", placeholder: "test@example.com" %>
+                 <%= f.email_field :email, class: "form-control", placeholder: "user@example.com" %>
                </div>
                <div class="mb-3">
                  <%= f.label :パスワード %>
@@ -19,12 +19,12 @@
                    ログイン状態を保持する
                  </label>
                </div>
-               <div class="text-center">
+               <div class="d-grid">
                  <%= f.submit "ログイン", class: "btn btn-primary" %>
                </div>
              <% end %>
            <div class='text-center mt-1'>
-             <%= link_to 'アカウントをお持ちでない方はこちら', new_user_path %>
+             <%= link_to 'アカウントをお持ちでない方はこちら', new_user_path, class: "link" %>
            </div>
         </div>
       </div>

@@ -22,12 +22,12 @@
             <%= f.label :パスワード（確認）, class: "form-label" %>
             <%= f.password_field :password_confirmation, class: "form-control", placeholder: "パスワードを再入力" %>
           </div>
-          <div class="text-center">
+          <div class="d-grid">
             <%= f.submit "アカウント作成", class: "btn btn-primary" %>
           </div>
         <% end %>
         <div class='text-center mt-1'>
-          <%= link_to 'すでにアカウントをお持ちの方はこちら', login_path %>
+          <%= link_to 'すでにアカウントをお持ちの方はこちら', login_path, class: "link" %>
         </div>
         </div>
       </div>
