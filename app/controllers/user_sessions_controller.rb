@@ -17,6 +17,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, status: :see_other
+    redirect_to login_path, status: :see_other
   end
 end
