@@ -1,0 +1,34 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fw-bold">
+    <%= link_to '#', class: "navbar-brand", style: "margin-left: 120px;" do %>
+      <i class="bi bi-book"></i>
+      Book Logger
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to '書籍一覧', '#', class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '書籍登録', '#', class:"nav-link" %>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto" style="margin-right: 100px;">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+            <i class="bi bi-person-circle"></i>
+              <%= current_user.name %>
+          </a>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'ログアウト', logout_path, class: "btn btn-outline-light", data: { turbo_method: :delete } %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
