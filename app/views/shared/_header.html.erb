@@ -1,25 +1,32 @@
 <header>
-  <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
-    <%= link_to 'Book Logger', root_path, class: 'navbar-brand' %>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fw-bold">
+    <%= link_to '#', class: "navbar-brand", style: "margin-left: 120px;" do %>
+      <i class="bi bi-book"></i>
+      Book Logger
+    <% end %>
 
-    <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent'
-      aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
-      <span class='navbar-toggler-icon'></span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class='collapse navbar-collapse' id='navbarSupportedContent'>
-      <ul class='navbar-nav ms-auto main-nav align-items-center'>
-        <li class='nav-item dropdown dropdown-slide'>
-          <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'>
-            <%= current_user.name %>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to '書籍一覧', '#', class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '書籍登録', '#', class:"nav-link" %>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto" style="margin-right: 100px;">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+            <i class="bi bi-person-circle"></i>
+              <%= current_user.name %>
           </a>
-          <div class='dropdown-menu dropdown-menu-end'>
-            <%= link_to '書籍一覧', boards_path, class: 'dropdown-item' %>
-            <%= link_to '書籍登録', new_board_path, class: 'dropdown-item' %>
-            <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
-            <div class='dropdown-divider'></div>
-            <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
-          </div>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'ログアウト', logout_path, class: "btn btn-outline-light", data: { turbo_method: :delete } %>
         </li>
       </ul>
     </div>

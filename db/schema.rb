@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_06_07_135408) do
     t.index ["user_id"], name: "index_boards_on_user_id"
   end
 
+ActiveRecord::Schema[7.0].define(version: 2026_05_18_092550) do
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
