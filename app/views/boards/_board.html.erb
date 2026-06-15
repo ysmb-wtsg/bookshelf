@@ -1,21 +1,22 @@
 <div class="col-sm-12 col-lg-4 mb-3">
   <div id="board-id-<%= board.id %>">
     <div class="card">
-      <%= image_tag "board_placeholder.png", class: "card-img-top", width: "300", height:"200" %>
       <div class="card-body">
         <div class="d-flex">
           <h4 class="card-title">
-            <%= link_to board.title, board_path(board) %>
+            <%= link_to board.title, board_path(board), class:"text-dark link board-link fs-5" %>
           </h4>
         </div>
         <ul class="list-inline">
-          <li class="list-inline-item"><i class="bi bi-person-fill"></i> <%= board.author %></li>
-          <li class="list-inline-item"><i class="bi bi-calendar"></i> <%= l board.created_at, format: :short %></li>
+          <li class="list-inline-item fs-6 text-muted"><i class="bi bi-person"></i> <%= board.author %></li>
         </ul>
-        <p class="card-text"><%= truncate(board.body, length: 100) %></p>
-        <div class="text-muted small">
-          登録者: <%= board.user.name %>
+        <p class="card-text small"><%= truncate(board.body, length: 100) %></p>
+
+        <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+          <small class="text-muted"><i class="bi bi-chat-dots"></i> レビュー 2件</small>
+          <small class="text-muted"><i class="bi bi-calendar"></i><%= board.created_at.strftime("%Y-%m-%d") %><%= ' 登録' %></small>
         </div>
+     
       </div>
     </div>
   </div>

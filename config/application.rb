@@ -39,5 +39,7 @@ module V3BeginnerRails
       g.helper false
       g.test_framework nil
     end
+
+    config.i18n.default_locale = :ja
   end
 end

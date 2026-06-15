@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
   def index
-    @boards = Board.includes(:user)
+    @boards = Board.includes(:user).page(params[:page]).per(6)
   end
 
   def new
