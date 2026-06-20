@@ -10,15 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_06_07_135408) do
+ActiveRecord::Schema[7.0].define(version: 2026_06_20_003813) do
   create_table "boards", charset: "utf8mb4", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "author"
+    t.string "author", null: false
     t.index ["user_id"], name: "index_boards_on_user_id"
+  end
+
+  create_table "reviews", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "board_id"
+    t.integer "rating", null: false
+    t.string "title", null: false
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["board_id"], name: "index_reviews_on_board_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -31,4 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 2026_06_07_135408) do
   end
 
   add_foreign_key "boards", "users"
+  add_foreign_key "reviews", "boards"
+  add_foreign_key "reviews", "users"
 end
