@@ -22,6 +22,7 @@ module V3BeginnerRails
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.time_zone = 'Tokyo'
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -38,5 +39,7 @@ module V3BeginnerRails
       g.helper false
       g.test_framework nil
     end
+
+    config.i18n.default_locale = :ja
   end
 end

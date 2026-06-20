@@ -1,0 +1,24 @@
+<div class="col-sm-12 col-lg-4 mb-3">
+  <div id="board-id-<%= board.id %>">
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex">
+          <h4 class="card-title">
+            <%= link_to board.title, board_path(board), class:"text-dark link board-link fs-5" %>
+          </h4>
+        </div>
+        <ul class="list-inline">
+          <li class="list-inline-item fs-6 text-muted"><i class="bi bi-person"></i> <%= board.author %></li>
+        </ul>
+        <p class="card-text small"><%= truncate(board.body, length: 100) %></p>
+
+        <div class="card-footer bg-transparent d-flex justify-content-between align-items-center">
+          <%# TODO: レビュー機能実装時に、実際のレビュー件数を表示する %>
+          <small class="text-muted"><i class="bi bi-chat-dots"></i> レビュー 2件</small>
+          <small class="text-muted"><i class="bi bi-calendar"></i><%= board.created_at.strftime("%Y-%m-%d") %> 登録</small>
+        </div>
+     
+      </div>
+    </div>
+  </div>
+</div>

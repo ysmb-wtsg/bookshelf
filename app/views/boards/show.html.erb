@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 mt-4">
+      <%= link_to '書籍一覧', boards_path, class:"link" %> / <%= @board.title %>
+        <article class="card mt-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-8">
+                <h3><%= @board.title %></h3>
+                <div class="text-muted mt-2">
+                  <i class="bi bi-person"></i> <%= @board.author %>
+                </div>           
+                <p><%= simple_format(@board.body) %></p>
+              </div>
+                <div class="col-md-4">
+                  <div class='bg-light rounded p-3'>
+                    <table class="table table-sm table-borderless mb-0">
+                      <tbody><tr>
+                        <th class="text-muted">登録日</th>
+                        <td><%= @board.created_at.strftime("%Y-%m-%d") %></td>
+                      </tr>
+                      <tr>
+                        <th class="text-muted">登録者</th>
+                        <td><%= @board.user.name %></td>
+                      </tr>
+                      <tr>
+                        <%# TODO: レビュー機能実装時に、実際のレビュー件数を表示する %>
+                        <th class="text-muted">レビュー数</th>
+                        <td>2件</td>
+                      </tr>
+                    </tbody></table>
+                    <hr>
+                    <div class="d-grid gap-2">
+                      <%= link_to edit_board_path(@board), class: "btn btn-outline-primary btn-sm" do %>
+                        <i class='bi bi-pencil'></i> 編集
+                      <% end %>
+                      <%= link_to board_path(@board), id: "button-delete-#{@board.id}", class: "btn btn-outline-danger btn-sm", data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+                        <i class="bi bi-trash-fill"></i> 削除
+                      <% end %>
+                    </div>
+                  </div>
+                </div>            
+              </div>
+        </div>
+      </article>
+    </div>
+  </div>
