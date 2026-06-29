@@ -10,6 +10,31 @@
                 <div class="text-muted mt-2">
                   <i class="bi bi-person"></i> <%= @board.author %>
                 </div>           
+                
+                <!-- 星の表示 -->
+                <div class="star-rating mt-3">
+                  <% if @board.reviews.any? %>
+                    <% full_stars = @average_rate.floor %>
+                    <% half_star = (@average_rate - full_stars) >= 0.5 %>
+                    <% empty_stars = 5 - full_stars - (half_star ? 1 : 0) %>
+                    <!-- 塗りつぶされた星 -->
+                    <% full_stars.times do %>
+                      <i class="bi bi-star-fill text-warning"></i>
+                    <% end %>
+                    <!-- 半分の星 -->
+                    <% if half_star %>
+                      <i class="bi bi-star-half text-warning"></i>
+                    <% end %>
+                    <!-- 空の星 -->
+                    <% empty_stars.times do %>
+                      <i class="bi bi-star text-warning"></i>
+                    <% end %>
+                    <span class="ms-2 text-muted"><%= @average_rate %> / 5.0 (<%= @board.reviews.count %>件のレビュー)</span>
+                  <% else %>
+                    <span class="text-muted">まだレビューがありません</span>
+                  <% end %>
+                </div>
+
                 <p><%= simple_format(@board.body) %></p>
               </div>
                 <div class="col-md-4">
@@ -24,20 +49,22 @@
                         <td><%= @board.user.name %></td>
                       </tr>
                       <tr>
-                        <%# TODO: レビュー機能実装時に、実際のレビュー件数を表示する %>
                         <th class="text-muted">レビュー数</th>
-                        <td>2件</td>
+                        <td><%= @board.reviews.count %>件</td>
                       </tr>
                     </tbody></table>
                     <hr>
-                    <div class="d-grid gap-2">
-                      <%= link_to edit_board_path(@board), class: "btn btn-outline-primary btn-sm" do %>
-                        <i class='bi bi-pencil'></i> 編集
-                      <% end %>
-                      <%= link_to board_path(@board), id: "button-delete-#{@board.id}", class: "btn btn-outline-danger btn-sm", data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
-                        <i class="bi bi-trash-fill"></i> 削除
-                      <% end %>
-                    </div>
+
+                    <% if current_user == @board.user %>
+                      <div class="d-grid gap-2">
+                        <%= link_to edit_board_path(@board), class: "btn btn-outline-primary btn-sm" do %>
+                          <i class='bi bi-pencil'></i> 編集
+                        <% end %>
+                        <%= link_to board_path(@board), id: "button-delete-#{@board.id}", class: "btn btn-outline-danger btn-sm", data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+                          <i class="bi bi-trash-fill"></i> 削除
+                        <% end %>
+                      </div>
+                    <% end %>
                   </div>
                 </div>            
               </div>
@@ -45,3 +72,17 @@
       </article>
     </div>
   </div>
+
+  <div class="col-lg-12 mt-4">
+      <div class="d-flex justify-content-between align-items-center mb-3">  
+        <h4 class="mb-0">レビュー（<%= @board.reviews.count %>件）</h4>
+        <%= link_to new_board_review_path(@board), class: "btn btn-success" do %>
+          <i class="bi bi-pencil-square"></i> レビューを書く
+        <% end %>
+      </div>
+    </div>
+
+  <div class="row">
+    <%= render @reviews %>
+  </div>
+</div>

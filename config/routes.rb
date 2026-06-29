@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "user_sessions#new"
   resources :users, only: %i[new create]
-  resources :boards
+  resources :boards do
+    resources :reviews, only: %i[new create edit update destroy], shallow: true
+  end
 
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'

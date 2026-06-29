@@ -25,6 +25,8 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
+    @reviews = @board.reviews.includes(:user).order(created_at: :desc)
+    @average_rate = @board.reviews.average(:rate).to_f.round(1) # 平均を小数点第1位まで取得
   end
 
   def update

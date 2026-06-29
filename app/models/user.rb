@@ -7,4 +7,9 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true,  if: -> { new_record? || password.present? }
 
   has_many :boards, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+
+  def own?(object)
+    id == object&.user_id
+  end
 end
