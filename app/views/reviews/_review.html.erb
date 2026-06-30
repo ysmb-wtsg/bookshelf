@@ -20,12 +20,12 @@
       <div class="d-flex justify-content-between align-items-center my-2 me-3">
         <div class="mx-3 my-1 fw-bold"><%= review.title %></div>
          
-        <% if current_user == review.user %>
+        <% if current_user.own?(review) %>
           <div class="d-flex gap-2">
             <%= link_to edit_review_path(review), class: "btn btn-outline-primary btn-sm" do %>
               <i class='bi bi-pencil'></i> 編集
             <% end %>
-            <%= link_to review_path(review), id: "button-delete-#{@board.id}", class: "btn btn-outline-danger btn-sm", data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
+            <%= link_to review_path(review), id: "button-delete-#{review.id}", class: "btn btn-outline-danger btn-sm", data: { turbo_method: :delete, turbo_confirm: '削除しますか？' } do %>
               <i class="bi bi-trash-fill"></i> 削除
             <% end %>
           </div>

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12 mt-4">
-      <%= link_to '書籍一覧', boards_path, class:"link" %> / <%= link_to @board.title, board_path(@board), class:"link" %> / 編集
+      <%= link_to '書籍一覧', boards_path, class:"link" %> / <%= link_to @board.title, board_path(@board), class:"link" %> / レビュー編集
         <h2 class="mt-3">レビューを編集</h2>
 
         <div class="card mt-4">
@@ -17,7 +17,7 @@
                 <% end %>
               </div>
               <div class="form-text">1〜5の評価を選択してください</div>
-              <%= f.hidden_field :rate, value: 0 %>
+              <%= f.hidden_field :rate, value: @review.rate %>
             </div>
             <div class="m-3">
               <%= f.label :title, 'タイトル' %>
@@ -43,6 +43,16 @@
     const rateInput = document.querySelector('#review_rate');
     
     if (!starButtons.length || !rateInput) return;
+
+    // 既存の評価を取得して星を表示
+    const currentRate = parseInt(rateInput.value);
+    if (currentRate > 0) {
+      starButtons.forEach(btn => {
+        if (parseInt(btn.dataset.value) <= currentRate) {
+          btn.classList.add('active');
+        }
+      });
+    }
     
     // 星ボタンをクリックしたとき
     starButtons.forEach(button => {
