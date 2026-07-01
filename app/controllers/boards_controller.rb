@@ -2,7 +2,7 @@ class BoardsController < ApplicationController
   PER_PAGE = 6
 
   def index
-    @boards = Board.includes(:user).page(params[:page]).per(PER_PAGE)
+    @boards = Board.includes(:user, :reviews).page(params[:page]).per(PER_PAGE)
   end
 
   def new
@@ -25,6 +25,8 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
+    @reviews = @board.reviews.includes(:user).order(created_at: :desc)
+    @average_rate = @board.reviews.average(:rate).to_f.round(1) # 平均を小数点第1位まで取得
   end
 
   def update
