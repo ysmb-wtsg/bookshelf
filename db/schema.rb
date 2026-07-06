@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_06_27_090137) do
+ActiveRecord::Schema[7.0].define(version: 2026_07_04_113217) do
+  create_table "board_tags", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "board_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["board_id"], name: "index_board_tags_on_board_id"
+    t.index ["tag_id"], name: "index_board_tags_on_tag_id"
+  end
+
   create_table "boards", charset: "utf8mb4", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
@@ -33,6 +42,12 @@ ActiveRecord::Schema[7.0].define(version: 2026_06_27_090137) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "tags", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -42,6 +57,8 @@ ActiveRecord::Schema[7.0].define(version: 2026_06_27_090137) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "board_tags", "boards"
+  add_foreign_key "board_tags", "tags"
   add_foreign_key "boards", "users"
   add_foreign_key "reviews", "boards"
   add_foreign_key "reviews", "users"

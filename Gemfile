@@ -48,6 +48,8 @@ gem 'bootstrap5-kaminari-views'
 
 gem 'rails-i18n', '~> 7.0.0'
 
+gem 'ransack', '3.2.1'
+
 # gem 'sorcery', '0.16.3'
 
 # Use Sass to process CSS
