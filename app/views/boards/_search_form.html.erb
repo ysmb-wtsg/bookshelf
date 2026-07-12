@@ -1,0 +1,24 @@
+<%= search_form_for q, url: url do |f| %>
+  <div class="card">
+    <div class="card-body">  
+      <div class="row g-3 align-items-end">
+        <!-- キーワード検索 -->
+        <div class="col-sm-5">
+          <label class="form-label">キーワード検索</label>
+          <%= f.search_field :title_or_author_cont, class: 'form-control', placeholder: 'タイトル・著者名で検索...' %>
+        </div>
+
+        <!-- タグで絞り込み -->
+        <div class="col-sm-4">
+          <label class="form-label">タグで絞り込み</label>
+          <%= f.collection_select :board_tags_tag_id_eq, Tag.all, :id, :name, { include_blank: 'すべて' }, { class: 'form-select' } %>
+        </div>
+
+        <!-- 検索ボタン -->
+        <div class="col-sm-3">
+          <button type="submit" class="btn btn-secondary w-100"><i class="bi bi-search"></i>検索</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

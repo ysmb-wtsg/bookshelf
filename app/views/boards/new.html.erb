@@ -19,6 +19,18 @@
           <%= f.text_area :body, class: "form-control mt-2", placeholder: "書籍の概要を入力してください...", rows: "5" %>
         </div>
         <div class="m-3">
+          <%= f.label :tag_ids, 'タグ' %>
+            <div class="mt-2">
+              <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |b| %>
+                <div class="form-check form-check-inline">
+                  <%= b.check_box class: "form-check-input" %>
+                  <%= b.label class: "form-check-label" %>
+                </div>
+              <% end %>
+            </div>
+        </div>
+        <hr>
+        <div class="m-3">
           <%= f.submit '✓登録する', class: "btn btn-primary" %>
           <%= link_to 'キャンセル', boards_path, class: "btn btn-outline-secondary" %>
         </div>

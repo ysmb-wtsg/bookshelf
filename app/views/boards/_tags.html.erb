@@ -1,0 +1,21 @@
+<div class="mb-2">
+  <% board.tags.each do |tag| %>
+    <% 
+      badge_class = case tag.name
+      when 'Ruby'
+        'text-bg-primary'
+      when '設計'
+        'text-bg-success'
+      when '小説'
+        'text-bg-warning'
+      when 'ビジネス'
+        'text-bg-info'
+      when '自己啓発'
+        'text-bg-secondary'
+      else
+        'text-bg-secondary'
+      end
+    %>
+    <span class="badge <%= badge_class %> me-1"><%= tag.name %></span>
+  <% end %>
+</div>

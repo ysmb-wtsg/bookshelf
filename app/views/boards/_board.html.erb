@@ -15,6 +15,11 @@
           <li class="list-inline-item fs-6 text-muted"><i class="bi bi-person"></i> <%= board.author %></li>
         </ul>
         <p class="card-text small"><%= truncate(board.body, length: 100) %></p>
+
+        <% if board.tags.present? %>
+          <%= render 'tags', board: board %>
+        <% end %>
+
         <hr>
         <div class="d-flex justify-content-between align-items-center">
           <small class="text-muted"><i class="bi bi-chat-dots"></i> レビュー <%= board.reviews.size %>件</small>

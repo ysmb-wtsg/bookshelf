@@ -5,4 +5,6 @@ class Board < ApplicationRecord
 
   belongs_to :user
   has_many :reviews, dependent: :destroy
+  has_many :board_tags, dependent: :destroy
+  has_many :tags, through: :board_tags
 end

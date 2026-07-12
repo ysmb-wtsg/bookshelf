@@ -2,7 +2,8 @@ class BoardsController < ApplicationController
   PER_PAGE = 6
 
   def index
-    @boards = Board.includes(:user, :reviews).page(params[:page]).per(PER_PAGE)
+    @q = Board.ransack(params[:q])
+    @boards = @q.result(distinct: true).includes(:user, :reviews, :tags).page(params[:page]).per(PER_PAGE)
   end
 
   def new
@@ -51,7 +52,6 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:title, :author, :body)
+    params.require(:board).permit(:title, :author, :body, tag_ids: [])
   end
-
 end

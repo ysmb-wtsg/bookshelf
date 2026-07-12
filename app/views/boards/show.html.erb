@@ -17,6 +17,12 @@
                 </div>
 
                 <p><%= simple_format(@board.body) %></p>
+
+                <!-- タグの表示 -->
+                <% if @board.tags.present? %>
+                  <%= render 'tags', board: @board %>
+                <% end %>
+
               </div>
                 <div class="col-md-4">
                   <div class='bg-light rounded p-3'>
